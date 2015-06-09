@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  * @author greg
  *
  */
-public class DrawPane extends JPanel implements Observer {
+public class DrawPane extends JPanel{
 
     /**
      *
@@ -26,7 +26,6 @@ public class DrawPane extends JPanel implements Observer {
     DrawPane(RightTriangle t)
     {
         rt = t;
-        rt.addObserver(this);
         setPreferredSize(new Dimension(2 * gap + rt.getBase(), 2 * gap + rt.getHeight()));
     }
 
@@ -38,8 +37,7 @@ public class DrawPane extends JPanel implements Observer {
         g.drawLine(gap, gap, gap + rt.getBase(), gap+ rt.getHeight());
     }
 
-    @Override
-    public void update(Observable o, Object arg) {
+    public void update(){
         setPreferredSize(new Dimension(2 * gap + rt.getBase(), 2 * gap + rt.getHeight()));
         repaint();
     }
