@@ -1,8 +1,5 @@
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.util.Observable;
-import java.util.Observer;
-
 import javax.swing.JPanel;
 
 /**
@@ -37,8 +34,8 @@ public class DrawPane extends JPanel{
         g.drawLine(gap, gap, gap + rt.getBase(), gap+ rt.getHeight());
     }
 
-    public void update(){
-        setPreferredSize(new Dimension(2 * gap + rt.getBase(), 2 * gap + rt.getHeight()));
+    public void update() {
+        setPreferredSize(new Dimension(rt.getBase() + (gap*2), rt.getHeight() + (gap*2)));
         repaint();
     }
 }
